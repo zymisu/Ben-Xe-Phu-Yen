@@ -1,0 +1,432 @@
+@import "tailwindcss";
+
+/* Hệ màu: nền trung tính, một màu nhấn duy nhất (--brand). Đổi màu nhấn chỉ cần sửa
+   --brand và --brand-* ở hai khối :root bên dưới (sáng và tối). */
+
+:root {
+  --surface: #ffffff;
+  --surface-2: #f5f5f7;
+  --card: #ffffff;
+  --ink: #09090b;
+  --muted: #70707b;
+  --line: #e8e8ec;
+  --line-strong: #d4d4d9;
+
+  --brand: #00a862;
+  --brand-hover: #008f53;
+  --brand-ink: #ffffff;
+  --brand-soft: #e6f7ef;
+  --brand-soft-ink: #006b3f;
+
+  /* Vùng tối: thanh bên */
+  --deep: #0b0b0e;
+  --deep-2: #000000;
+  --deep-ink: #fafafa;
+  --deep-muted: #8a8a94;
+  --deep-line: #1e1e24;
+
+  --ok: #067647;
+  --ok-soft: #ecfdf3;
+  --warn: #b54708;
+  --warn-soft: #fffaeb;
+  --danger: #b42318;
+  --danger-soft: #fef3f2;
+  --info: #175cd3;
+  --info-soft: #eff8ff;
+  --neutral: #475467;
+  --neutral-soft: #f2f4f7;
+
+  --ring: #00a862;
+
+  /* Đổ bóng nhẹ, các khối tách nhau chủ yếu bằng viền */
+  --shadow-sm: 0 1px 2px rgb(9 9 11 / 0.04);
+  --shadow-md: 0 2px 8px rgb(9 9 11 / 0.06);
+  --shadow-lg: 0 8px 32px rgb(9 9 11 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface: #09090b;
+    --surface-2: #131317;
+    --card: #0f0f13;
+    --ink: #fafafa;
+    --muted: #9a9aa5;
+    --line: #1e1e24;
+    --line-strong: #2a2a32;
+
+    --brand: #00d47e;
+    --brand-hover: #27e096;
+    --brand-ink: #04170e;
+    --brand-soft: #0a2a1c;
+    --brand-soft-ink: #6ee7b0;
+
+    --deep: #0f0f13;
+    --deep-2: #09090b;
+    --deep-ink: #fafafa;
+    --deep-muted: #8a8a94;
+    --deep-line: #22222a;
+
+    --ok: #4ade80;
+    --ok-soft: #0a2a1c;
+    --warn: #fdb022;
+    --warn-soft: #2b1d05;
+    --danger: #f97066;
+    --danger-soft: #2d1211;
+    --info: #53b1fd;
+    --info-soft: #0b2545;
+    --neutral: #9a9aa5;
+    --neutral-soft: #1a1a20;
+
+    --ring: #00d47e;
+
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  --surface: #09090b;
+  --surface-2: #131317;
+  --card: #0f0f13;
+  --ink: #fafafa;
+  --muted: #9a9aa5;
+  --line: #1e1e24;
+  --line-strong: #2a2a32;
+
+  --brand: #00d47e;
+  --brand-hover: #27e096;
+  --brand-ink: #04170e;
+  --brand-soft: #0a2a1c;
+  --brand-soft-ink: #6ee7b0;
+
+  --deep: #0f0f13;
+  --deep-2: #09090b;
+  --deep-ink: #fafafa;
+  --deep-muted: #8a8a94;
+  --deep-line: #22222a;
+
+  --ok: #4ade80;
+  --ok-soft: #0a2a1c;
+  --warn: #fdb022;
+  --warn-soft: #2b1d05;
+  --danger: #f97066;
+  --danger-soft: #2d1211;
+  --info: #53b1fd;
+  --info-soft: #0b2545;
+  --neutral: #9a9aa5;
+  --neutral-soft: #1a1a20;
+
+  --ring: #00d47e;
+
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-soft-ink: var(--brand-soft-ink);
+
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-deep-ink: var(--deep-ink);
+  --color-deep-muted: var(--deep-muted);
+  --color-deep-line: var(--deep-line);
+
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-neutral: var(--neutral);
+  --color-neutral-soft: var(--neutral-soft);
+
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: var(--shadow-sm);
+  --shadow-raise: var(--shadow-md);
+  --shadow-float: var(--shadow-lg);
+}
+
+/* ========================================================== nền tảng */
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Tiêu đề: chữ đậm, siết khoảng cách chữ */
+h1,
+h2,
+h3,
+.font-display {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h1,
+.text-hero {
+  letter-spacing: -0.04em;
+}
+
+table,
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--brand-ink);
+}
+
+/* ============================================= mobile first: nền tảng */
+
+.pb-an-toan {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.mb-thanh-duoi {
+  margin-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 1024px) {
+  .mb-thanh-duoi {
+    margin-bottom: 0;
+  }
+}
+
+/* Vùng bấm tối thiểu 44px cho thao tác bằng ngón tay */
+.cham-duoc {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Ô nhập 16px trở lên, nếu nhỏ hơn iOS sẽ tự phóng to cả trang */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+@media (min-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* ========================================================== chuyển động */
+
+@keyframes hien-len {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hien-len {
+  animation: hien-len 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes truot-vao {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.truot-vao {
+  animation: truot-vao 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes truot-len {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+.truot-len {
+  animation: truot-len 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (min-width: 640px) {
+  .truot-len {
+    animation: hien-len 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes nhip {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.nhip {
+  animation: nhip 1.6s ease-in-out infinite;
+}
+
+/* Vào trang: từng phần tử trượt lên nối tiếp nhau */
+@keyframes vao-trang {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.vao-trang {
+  animation: vao-trang 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.tre-1 {
+  animation-delay: 0.08s;
+}
+.tre-2 {
+  animation-delay: 0.2s;
+}
+.tre-3 {
+  animation-delay: 0.32s;
+}
+.tre-4 {
+  animation-delay: 0.46s;
+}
+
+/* Cuộn tới đâu hiện tới đó */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-hien {
+  opacity: 1;
+  transform: none;
+}
+
+/* Thẻ nhấc nhẹ khi rê chuột */
+.nang-len {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s;
+}
+.nang-len:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hàng bảng sáng lên khi rê chuột */
+tbody tr {
+  transition: background-color 0.15s;
+}
+tbody tr:hover {
+  background: var(--surface-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================ in ấn */
+
+@media print {
+  .khong-in {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
+
+/* Nội dung ô bảng quá dài thì cắt bằng dấu ba chấm, xem đủ ở phần chi tiết */
+.ellip,
+.ellip > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
